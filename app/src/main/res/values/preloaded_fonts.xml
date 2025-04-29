@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <array name="preloaded_fonts" translatable="false">
+        <item>@font/oswald_bold</item>
+        <item>@font/plus_jakarta_sans</item>
+        <item>@font/plus_jakarta_sans_bold</item>
+        <item>@font/raleway_bold</item>
+        <item>@font/roboto</item>
+    </array>
+</resources>

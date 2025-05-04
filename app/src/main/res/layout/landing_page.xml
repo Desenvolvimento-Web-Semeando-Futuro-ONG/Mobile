@@ -1,0 +1,346 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity"
+    tools:visibility="visible">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:ignore="SpeakableTextPresentCheck">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/relativeLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:minHeight="1400dp">
+
+            <ImageView
+                android:id="@+id/img1"
+                android:layout_width="0dp"
+                android:layout_height="301dp"
+                android:scaleType="centerCrop"
+                android:tint="#79112B40"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.0"
+                app:srcCompat="@drawable/loginfundo"
+                tools:ignore="UseAppTint" />
+
+            <TextView
+                android:id="@+id/texto1"
+                android:layout_width="222dp"
+                android:layout_height="68dp"
+                android:layout_marginTop="176dp"
+                android:fontFamily="@font/raleway_bold"
+                android:scrollbarAlwaysDrawHorizontalTrack="true"
+                android:scrollbarAlwaysDrawVerticalTrack="true"
+                android:text="Junte-se a nós e faça a diferença"
+                android:textColor="@color/white"
+                android:textSize="28sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.093"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/img1" />
+
+            <ImageButton
+                android:id="@+id/imageButton5"
+                android:layout_width="79dp"
+                android:layout_height="68dp"
+                android:backgroundTint="@color/white"
+                android:scaleType="centerCrop"
+                android:src="@drawable/ic_action_name"
+                android:tint="#052305"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="1.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/img1"
+                tools:ignore="SpeakableTextPresentCheck,UseAppTint" />
+
+            <TextView
+                android:id="@+id/texto2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="28dp"
+                android:fontFamily="@font/plus_jakarta_sans_bold"
+                android:text="Nossas Atuações"
+                android:textSize="24sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.497"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/img1" />
+
+            <ImageView
+                android:id="@+id/img3"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:layout_marginTop="20dp"
+                android:background="#9FBD84"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.163"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/texto2"
+                app:srcCompat="@drawable/heart_puzzle" />
+
+            <ImageView
+                android:id="@+id/img4"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:layout_marginTop="8dp"
+                android:background="#9FBD84"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.163"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/img3"
+                app:srcCompat="@drawable/jump" />
+
+            <ImageView
+                android:id="@+id/img5"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:layout_marginTop="8dp"
+                android:background="#9FBD84"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.163"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/img4"
+                app:srcCompat="@drawable/kimono" />
+
+            <ImageView
+                android:id="@+id/img6"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:layout_marginTop="8dp"
+                android:background="#9FBD84"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.163"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/img5"
+                app:srcCompat="@drawable/shuttle_bus" />
+
+            <TextView
+                android:id="@+id/texto3"
+                android:layout_width="233dp"
+                android:layout_height="30dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginEnd="16dp"
+                android:fontFamily="@font/oswald_semibold"
+                android:text="AÇÕES SOCIAIS"
+                android:textSize="16sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.236"
+                app:layout_constraintStart_toEndOf="@+id/img3"
+                app:layout_constraintTop_toBottomOf="@+id/texto2" />
+
+            <TextView
+                android:id="@+id/texto4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:fontFamily="@font/oswald_semibold"
+                android:text="ATIVIDADES"
+                android:textSize="16sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.38"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/texto7" />
+
+            <TextView
+                android:id="@+id/texto5"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                android:fontFamily="@font/oswald_semibold"
+                android:text="KIMONOS"
+                android:textSize="16sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.363"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/texto8" />
+
+            <TextView
+                android:id="@+id/texto6"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="13dp"
+                android:fontFamily="@font/oswald_semibold"
+                android:text="TRANSPORTE"
+                android:textSize="16sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.39"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/texto9" />
+
+            <TextView
+                android:id="@+id/texto7"
+                android:layout_width="233dp"
+                android:layout_height="38dp"
+                android:layout_marginStart="-22dp"
+                android:layout_marginTop="-8dp"
+                android:text="Ampliar nossas ações sociais, levando o esporte a mais crianças"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.756"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/texto3" />
+
+            <TextView
+                android:id="@+id/texto8"
+                android:layout_width="250dp"
+                android:layout_height="42dp"
+                android:layout_marginStart="-36dp"
+                android:layout_marginTop="-4dp"
+                android:text="Realização de eventos recreativos para crianças e idosos da comunidade"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.84"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/texto4" />
+
+            <TextView
+                android:id="@+id/texto9"
+                android:layout_width="232dp"
+                android:layout_height="37dp"
+                android:layout_marginStart="-24dp"
+                android:layout_marginTop="-4dp"
+                android:text="Doação de kimonos para crianças carentes"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.751"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/texto5" />
+
+            <TextView
+                android:id="@+id/texto10"
+                android:layout_width="232dp"
+                android:layout_height="37dp"
+                android:layout_marginStart="-16dp"
+                android:layout_marginTop="-4dp"
+                android:text="Garantia de transporte para eventos esportivos"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.745"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/texto6" />
+
+            <ImageView
+                android:id="@+id/img2"
+                android:layout_width="0dp"
+                android:layout_height="182dp"
+                android:layout_marginTop="44dp"
+                android:scaleType="centerCrop"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/texto10"
+                app:srcCompat="@drawable/home_foto" />
+
+            <TextView
+                android:id="@+id/texto11"
+                android:layout_width="357dp"
+                android:layout_height="72dp"
+                android:layout_marginTop="16dp"
+                android:fontFamily="@font/plus_jakarta_sans_bold"
+                android:text="Nosso propósito é transformar vidas e comunidades"
+                android:textAlignment="center"
+                android:textSize="24sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/img2" />
+
+            <TextView
+                android:id="@+id/texto12"
+                android:layout_width="336dp"
+                android:layout_height="88dp"
+                android:layout_marginTop="8dp"
+                android:fontFamily="@font/plus_jakarta_sans_medium"
+                android:text="A nossa missão é promover a inclusão social , através da educação e formação profissional."
+                android:textSize="16sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.49"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/texto11" />
+
+            <Button
+                android:id="@+id/button"
+                android:layout_width="343dp"
+                android:layout_height="59dp"
+                android:layout_marginTop="12dp"
+                android:backgroundTint="#82E547"
+                android:text="Doar"
+                android:textAlignment="center"
+                android:textColor="@color/black"
+                android:textSize="20sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.491"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/texto12" />
+
+            <TextView
+                android:id="@+id/texto13"
+                android:layout_width="338dp"
+                android:layout_height="43dp"
+                android:layout_marginTop="16dp"
+                android:fontFamily="@font/plus_jakarta_sans_bold"
+                android:text="Projetos em destaques"
+                android:textAlignment="textStart"
+                android:textSize="28sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.446"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/button" />
+
+            <ImageButton
+                android:id="@+id/imageButton_judoPage"
+                android:layout_width="149dp"
+                android:layout_height="94dp"
+                android:layout_marginTop="24dp"
+                app:layout_constraintEnd_toStartOf="@+id/imageButton_costuraPage"
+                app:layout_constraintHorizontal_bias="0.42"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/texto13"
+                app:srcCompat="@drawable/evento1"
+                tools:ignore="SpeakableTextPresentCheck" />
+
+            <TextView
+                android:id="@+id/texto15"
+                android:layout_width="141dp"
+                android:layout_height="23dp"
+                android:fontFamily="@font/plus_jakarta_sans_medium"
+                android:text="Eventos infantis de Judo"
+                android:textSize="12sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.125"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/imageButton_judoPage" />
+
+            <ImageButton
+                android:id="@+id/imageButton_costuraPage"
+                android:layout_width="149dp"
+                android:layout_height="94dp"
+                android:layout_marginTop="24dp"
+                android:layout_marginEnd="36dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/texto13"
+                app:srcCompat="@drawable/evento2"
+                tools:ignore="SpeakableTextPresentCheck" />
+
+            <TextView
+                android:id="@+id/texto14"
+                android:layout_width="147dp"
+                android:layout_height="42dp"
+                android:fontFamily="@font/plus_jakarta_sans_medium"
+                android:text="Oficina de corte e costura"
+                android:textAlignment="center"
+                android:textSize="12sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.854"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/imageButton_costuraPage" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </ScrollView>
+</androidx.constraintlayout.widget.ConstraintLayout>

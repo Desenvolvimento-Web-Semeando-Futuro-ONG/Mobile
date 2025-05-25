@@ -1,0 +1,263 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#0F7E9A6B">
+
+    <TextView
+        android:id="@+id/titulo_pagar_doacao"
+        android:layout_width="match_parent"
+        android:layout_height="150dp"
+        android:background="#6C00ACC1"
+        android:fontFamily="@font/raleway_bold"
+        android:gravity="center"
+        android:text="DOAÇÃO"
+        android:textAlignment="center"
+        android:textColor="@color/white"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toTopOf="@+id/divisao_doacao"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0" />
+
+
+    <View
+        android:id="@+id/divisao_doacao"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="112dp"
+        android:background="@drawable/divisoria_curva"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/Verifique"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:text="VERIFIQUE SUAS INFORMAÇÕES"
+        android:textColor="@color/black"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/divisao_doacao" />
+
+
+    <!-- Rótulo do campo - Nome-->
+    <TextView
+        android:id="@+id/label_nome"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="16dp"
+        android:text="Nome: "
+        android:textColor="#000000"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/Verifique" />
+    <!-- Valor do campo -->
+    <TextView
+        android:id="@+id/verifique_nome"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:textColor="#000000"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toEndOf="@id/label_nome"
+        app:layout_constraintTop_toTopOf="@id/label_nome" />
+
+    <!-- Rótulo do campo - CPF/CNPJ -->
+
+    <!-- Telefone -->
+
+    <TextView
+        android:id="@+id/label_cpf_cpnj"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:text="CPF/CNPJ: "
+        android:textColor="#000000"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/label_nome" />
+
+    <TextView
+        android:id="@+id/verifique_cpf_cnpj"
+        android:layout_width="270dp"
+        android:layout_height="wrap_content"
+        android:text=""
+        android:textColor="#222"
+        android:textStyle="bold"
+        app:layout_constraintStart_toEndOf="@+id/label_cpf_cpnj"
+        app:layout_constraintTop_toBottomOf="@+id/verifique_nome" />
+
+    <!-- E-mail -->
+
+    <!-- Valor a doar -->
+
+    <TextView
+        android:id="@+id/label_telefone"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:text="Telefone: "
+        android:textColor="#000000"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/label_cpf_cpnj" />
+
+    <TextView
+        android:id="@+id/verifique_telefone"
+        android:layout_width="282dp"
+        android:layout_height="wrap_content"
+        android:text=""
+        android:textColor="#222"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toEndOf="@+id/label_telefone"
+        app:layout_constraintTop_toBottomOf="@+id/verifique_cpf_cnpj" />
+
+    <!-- Botão Voltar -->
+
+    <TextView
+        android:id="@+id/label_email"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:text="E-mail: "
+        android:textColor="#000000"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/label_telefone" />
+
+    <TextView
+        android:id="@+id/verifique_email"
+        android:layout_width="298dp"
+        android:layout_height="wrap_content"
+        android:text=""
+        android:textColor="#222"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toEndOf="@+id/label_email"
+        app:layout_constraintTop_toBottomOf="@+id/verifique_telefone" />
+
+    <TextView
+        android:id="@+id/label_valordoado"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:text="Valor a ser doado: "
+        android:textColor="#000000"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/label_email" />
+
+    <TextView
+        android:id="@+id/verique_valor"
+        android:layout_width="227dp"
+        android:layout_height="wrap_content"
+        android:text=""
+        android:textColor="#222"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toEndOf="@+id/label_valordoado"
+        app:layout_constraintTop_toBottomOf="@+id/verifique_email" />
+
+    <Button
+        android:id="@+id/btn_voltar"
+        android:layout_width="181dp"
+        android:layout_height="52dp"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/borda_botao"
+        android:backgroundTint="@color/white"
+        android:drawableLeft="@android:drawable/ic_menu_revert"
+        android:text="Corrigir Dados"
+        android:textColor="@color/btn_text_color_selector"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/verique_valor" />
+
+    <!-- QR Code -->
+    <ImageView
+        android:id="@+id/ivQrCode"
+        android:layout_width="220dp"
+        android:layout_height="220dp"
+        android:layout_marginTop="32dp"
+        android:background="@drawable/qrcode"
+        android:contentDescription="QR Code"
+        android:scaleType="fitCenter"
+        app:layout_constraintEnd_toEndOf="@+id/divisao_doacao"
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="@+id/divisao_doacao"
+        app:layout_constraintTop_toBottomOf="@+id/btn_voltar" />
+
+
+    <!-- botão finalizar -->
+
+    <LinearLayout
+        android:id="@+id/container_link"
+        android:layout_width="320dp"
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:paddingStart="16dp"
+        android:paddingEnd="16dp"
+        app:layout_constraintBottom_toTopOf="@+id/btn_finalizar"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.486"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/ivQrCode"
+        app:layout_constraintVertical_bias="0.0">
+
+        <ImageButton
+            android:id="@+id/button_copy_link"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:contentDescription="Copiar link"
+            android:src="@drawable/baseline_copy_all_24"
+            android:tint="@color/black"
+            tools:ignore="TouchTargetSizeCheck,UseAppTint" />
+
+        <TextView
+            android:id="@+id/text_qrcode_link"
+            android:layout_width="300dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="#EFEFEF"
+            android:ellipsize="middle"
+            android:padding="12dp"
+            android:singleLine="true"
+            android:textColor="@color/black"
+            android:textIsSelectable="false"
+            android:textSize="14sp" />
+
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/btn_finalizar"
+        android:layout_width="350dp"
+        android:layout_height="wrap_content"
+        android:backgroundTint="#82E547"
+        android:text="Finalizar"
+        android:textColor="@color/black"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toBottomOf="@+id/divisao_doacao"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.488"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/ivQrCode"
+        app:layout_constraintVertical_bias="0.447" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

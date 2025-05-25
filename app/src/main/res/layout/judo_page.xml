@@ -1,325 +1,283 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content">
+    android:layout_height="match_parent"
+    android:fillViewport="true">
 
-    <ScrollView
-        android:id="@+id/scrollView2"
+<androidx.constraintlayout.widget.ConstraintLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <ImageView
+        android:id="@+id/capa_judo"
         android:layout_width="match_parent"
+        android:layout_height="350dp"
+        android:scaleType="centerCrop"
+        android:src="@drawable/judo6a"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.666"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/titulo2"
+        android:layout_width="363dp"
         android:layout_height="wrap_content"
-        tools:ignore="MissingConstraints">
+        android:fontFamily="@font/plus_jakarta_sans_extrabold"
+        android:shadowColor="@color/black"
+        android:singleLine="false"
+        android:text="Projeto Judô para Crianças"
+        android:textAlignment="center"
+        android:textColor="#FDD835"
+        android:textDirection="inherit"
+        android:textSize="28sp"
+        app:layout_constraintBottom_toBottomOf="@+id/capa_judo"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.794" />
 
+    <View
+        android:id="@+id/divider"
+        android:layout_width="match_parent"
+        android:layout_height="1400dp"
+        android:layout_marginTop="328dp"
+        android:background="@drawable/divisoria_curva"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
-        <androidx.constraintlayout.widget.ConstraintLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:textAlignment="textEnd"
-            tools:ignore="VisualLintBounds">
+    <TextView
+        android:id="@+id/subtitulo"
+        android:layout_width="370dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:fontFamily="@font/raleway_bold"
+        android:text="Formando valores dentro e fora do tatame"
+        android:textAlignment="center"
+        android:textColor="@color/black"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/divider" />
 
-            <ImageView
-                android:id="@+id/img7"
-                android:layout_width="match_parent"
-                android:layout_height="200dp"
-                android:contentDescription="TODO"
-                android:scaleType="centerCrop"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                app:srcCompat="@drawable/home_foto"
-                tools:ignore="DuplicateIds" />
+    <TextView
+        android:id="@+id/subtitulo1"
+        android:layout_width="370dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="204dp"
+        android:fontFamily="@font/raleway_bold"
+        android:text="História"
+        android:textAlignment="center"
+        android:textColor="@color/black"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.542"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/descricao2" />
 
-            <TextView
-                android:id="@+id/texto16"
-                android:layout_width="321dp"
-                android:layout_height="35dp"
-                android:fontFamily="@font/plus_jakarta_sans_bold"
-                android:text="Projeto Judô para Crianças"
-                android:textAlignment="center"
-                android:textColor="#F0C45F"
-                android:textSize="20sp"
-                app:layout_constraintBottom_toBottomOf="@+id/img7"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_bias="0.345"
-                tools:ignore="DuplicateIds" />
+    <TextView
+        android:id="@+id/descricao"
+        android:layout_width="370dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="2dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="2dp"
+        android:justificationMode="inter_word"
+        android:textColor="@color/black"
+        android:text="O projeto Judô para as Crianças, criado em 2018, tem como missão levar disciplina, respeito e espírito de equipe às crianças da comunidade. Desde então, mais de 200 crianças já foram beneficiadas com aulas gratuitas ministradas por professores voluntários."
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/subtitulo" />
 
-            <TextView
-                android:id="@+id/texto17"
-                android:layout_width="285dp"
-                android:layout_height="51dp"
-                android:layout_marginTop="104dp"
-                android:fontFamily="@font/plus_jakarta_sans_bold"
-                android:text="Esporte e inclusão, os pilares da transformação social"
-                android:textAlignment="center"
-                android:textColor="#F2941F"
-                android:textSize="16sp"
-                app:layout_constraintBottom_toBottomOf="@+id/img7"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_bias="0.111"
-                tools:ignore="DuplicateIds" />
+    <TextView
+        android:id="@+id/descricao1"
+        android:layout_width="370dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="2dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="2dp"
+        android:justificationMode="inter_word"
+        android:textColor="@color/black"
+        android:text="Nossos pequenos atletas aprendem não só o judô, mas também valores como autocontrole e solidariedade. Famílias relatam melhora na escola, mais autoestima e novas amizades."
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.484"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/descricao" />
 
-            <TextView
-                android:id="@+id/texto18"
-                android:layout_width="360dp"
-                android:layout_height="83dp"
-                android:layout_marginTop="16dp"
-                android:autoSizeTextType="uniform"
-                android:autoText="false"
-                android:fontFamily="@font/akatab_semibold"
-                android:gravity="center_vertical"
-                android:justificationMode="inter_word"
-                android:lineSpacingMultiplier="0.8"
-                android:text="O projeto Judô para as Crianças, criado em 2018, tem como missão levar disciplina, respeito e espírito de equipe às crianças da comunidade. Desde então, mais de 200 crianças já foram beneficiadas com aulas gratuitas ministradas por professores voluntários."
-                android:textAlignment="viewStart"
-                android:textDirection="firstStrongLtr"
-                android:verticalScrollbarPosition="defaultPosition"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.586"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/img7"
-                tools:ignore="DuplicateIds,RtlCompat" />
+    <TextView
+        android:id="@+id/descricao2"
+        android:layout_width="370dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="2dp"
+        android:layout_marginTop="6dp"
+        android:layout_marginEnd="2dp"
+        android:justificationMode="inter_word"
+        android:textColor="@color/black"
+        android:text="Diversos eventos esportivos como torneios e campeonatos, são também oportunidades para celebrar o esforço coletivo e reconhecer o empenho de cada criança. Além disso, experiências em cada evento, podem abrir novas portas para que elas possam participarem em competições regionais e até nacionais."
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.484"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/descricao1" />
 
-            <TextView
-                android:id="@+id/texto19"
-                android:layout_width="360dp"
-                android:layout_height="67dp"
-                android:layout_marginTop="8dp"
-                android:fontFamily="@font/akatab_semibold"
-                android:justificationMode="inter_word"
-                android:lineSpacingMultiplier="0.8"
-                android:text="Nossos pequenos atletas aprendem não só o judô, mas também valores como autocontrole e solidariedade. Famílias relatam melhora na escola, mais autoestima e novas amizades. "
-                android:textDirection="firstStrongLtr"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.578"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/texto18" />
+    <ImageView
+        android:id="@+id/img1"
+        android:layout_width="180dp"
+        android:layout_height="180dp"
+        android:layout_marginTop="12dp"
+        app:layout_constraintEnd_toStartOf="@+id/img2"
+        app:layout_constraintHorizontal_bias="0.592"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/descricao2"
+        app:srcCompat="@drawable/judo1" />
 
-            <TextView
-                android:id="@+id/texto20"
-                android:layout_width="360dp"
-                android:layout_height="105dp"
-                android:layout_marginTop="8dp"
-                android:fontFamily="@font/akatab_semibold"
-                android:justificationMode="inter_word"
-                android:lineSpacingMultiplier="0.8"
-                android:text="Diversos eventos esportivos como torneios e campeonatos, são também oportunidades para celebrar o esforço coletivo e reconhecer o empenho de cada criança. Além disso, experiências em cada evento, podem abrir novas portas para que elas possam participarem em competições regionais e até nacionais."
-                android:textAlignment="textStart"
-                android:textDirection="firstStrongRtl"
-                android:textIsSelectable="false"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.586"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/texto19" />
+    <ImageView
+        android:id="@+id/img2"
+        android:layout_width="180dp"
+        android:layout_height="180dp"
+        android:layout_marginTop="12dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.928"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/descricao2"
+        app:srcCompat="@drawable/judo2" />
 
-            <ImageView
-                android:id="@+id/img8"
-                android:layout_width="173dp"
-                android:layout_height="170dp"
-                android:layout_marginTop="16dp"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.081"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/texto20"
-                app:srcCompat="@drawable/judo1"
-                tools:srcCompat="@drawable/judo1" />
+    <TextView
+        android:id="@+id/descricao3"
+        android:layout_width="370dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="6dp"
+        android:justificationMode="inter_word"
+        android:textColor="@color/black"
+        android:text="Desde a criação em 2018, o projeto Judô para as Crianças, vem preparando cada vez mais crianças para que elas participem de torneios e campeonatos municipais, com o objetivo de buscar uma classificação para os campeonatos estaduais e nacionais."
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.484"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/subtitulo1" />
 
-            <ImageView
-                android:id="@+id/img11"
-                android:layout_width="173dp"
-                android:layout_height="170dp"
-                android:layout_marginTop="8dp"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.107"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/texto25"
-                app:srcCompat="@drawable/judo1"
-                tools:srcCompat="@drawable/judo1" />
+    <TextView
+        android:id="@+id/descricao4"
+        android:layout_width="370dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="6dp"
+        android:justificationMode="inter_word"
+        android:textColor="@color/black"
+        android:text="As aulas acontecem todos os finais de semana no centro comunitário. Contamos  com professores voluntários que acompanham o desenvolvimento das crianças, garantindo um ambiente seguro e acolhedor."
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/descricao3" />
 
-            <ImageView
-                android:id="@+id/img10"
-                android:layout_width="173dp"
-                android:layout_height="170dp"
-                android:layout_marginTop="8dp"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.909"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/texto25"
-                app:srcCompat="@drawable/judo2"
-                tools:srcCompat="@drawable/judo2" />
+    <ImageView
+        android:id="@+id/img"
+        android:layout_width="180dp"
+        android:layout_height="180dp"
+        android:layout_marginTop="6dp"
+        android:scaleType="centerCrop"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.071"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/descricao4"
+        app:srcCompat="@drawable/judo3" />
 
-            <ImageView
-                android:id="@+id/img9"
-                android:layout_width="172dp"
-                android:layout_height="170dp"
-                android:layout_marginTop="16dp"
-                app:layout_constraintBottom_toTopOf="@+id/texto21"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.936"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/texto20"
-                app:layout_constraintVertical_bias="0.0"
-                app:srcCompat="@drawable/judo2"
-                tools:srcCompat="@drawable/judo2" />
+    <ImageView
+        android:id="@+id/img3"
+        android:layout_width="180dp"
+        android:layout_height="180dp"
+        android:layout_marginTop="6dp"
+        android:scaleType="centerCrop"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.923"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/descricao4"
+        app:srcCompat="@drawable/judo4" />
 
-            <TextView
-                android:id="@+id/texto22"
-                android:layout_width="84dp"
-                android:layout_height="28dp"
-                android:layout_marginTop="12dp"
-                android:fontFamily="@font/akatab_semibold"
-                android:text="História"
-                android:textAlignment="textStart"
-                android:textDirection="firstStrongRtl"
-                android:textIsSelectable="false"
-                android:textSize="20sp"
-                android:textStyle="bold"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.08"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/img8" />
+    <TextView
+        android:id="@+id/subtitulo2"
+        android:layout_width="370dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="204dp"
+        android:fontFamily="@font/raleway_bold"
+        android:text="Eventos"
+        android:textAlignment="center"
+        android:textColor="@color/black"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.485"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/descricao4" />
 
-            <TextView
-                android:id="@+id/texto26"
-                android:layout_width="219dp"
-                android:layout_height="29dp"
-                android:layout_marginTop="32dp"
-                android:fontFamily="@font/akatab_semibold"
-                android:text="Eventos e Campeonatos"
-                android:textAlignment="textStart"
-                android:textDirection="firstStrongRtl"
-                android:textIsSelectable="false"
-                android:textSize="20sp"
-                android:textStyle="bold"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.229"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/img11" />
+    <TextView
+        android:id="@+id/descricao5"
+        android:layout_width="370dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="6dp"
+        android:justificationMode="inter_word"
+        android:textColor="@color/black"
+        android:text="Os campeonatos são realizados ao longo do ano, com pelo menos duas competições principais: A Copa Comunitária de Judô que reúne as crianças de várias comunidades locais e o Campeonato Regionais de Judô Infantil, onde nossos atletas competem com outras escolas e projetos de judô da região."
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.484"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/subtitulo2" />
 
-            <TextView
-                android:id="@+id/texto28"
-                android:layout_width="219dp"
-                android:layout_height="29dp"
-                android:layout_marginTop="24dp"
-                android:fontFamily="@font/akatab_extrabold"
-                android:text="Quer fazer parte disso?"
-                android:textAlignment="textStart"
-                android:textColor="#E24B1D"
-                android:textDirection="firstStrongRtl"
-                android:textIsSelectable="false"
-                android:textSize="20sp"
-                android:textStyle="bold"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.502"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/texto27" />
+    <TextView
+        android:id="@+id/descricao6"
+        android:layout_width="370dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="6dp"
+        android:justificationMode="inter_word"
+        android:textColor="@color/black"
+        android:text="Recife é um polo ativo de judô infantil, promovendo diversos campeonatos que incentivam a prática esportiva entre crianças e adolescentes. Esses eventos são organizados por instituições como a Liga Pernambucana de Judô (LIPEJU), a Federação Pernambucana de Judô (FPJU), o Sesc e projetos sociais locais."
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.484"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/descricao5" />
 
-            <TextView
-                android:id="@+id/texto21"
-                android:layout_width="359dp"
-                android:layout_height="82dp"
-                android:layout_marginTop="8dp"
-                android:fontFamily="@font/akatab_semibold"
-                android:gravity="start"
-                android:justificationMode="inter_word"
-                android:lineSpacingMultiplier="0.8"
-                android:text="Desde a criação em 2018, o projeto Judô para as Crianças, vem preparando cada vez mais crianças para que elas participem de torneios e campeonatos municipais, com o objetivo de buscar uma classificação para os campeonatos estaduais e nacionais."
-                android:textAlignment="textStart"
-                android:textDirection="firstStrongRtl"
-                android:textIsSelectable="false"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.531"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/texto22" />
+    <TextView
+        android:id="@+id/subtitulo3"
+        android:layout_width="370dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:fontFamily="@font/raleway_bold"
+        android:text="Quer fazer parte disso?"
+        android:textAlignment="center"
+        android:textColor="#FB8C00"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.485"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/descricao6" />
 
-            <TextView
-                android:id="@+id/texto23"
-                android:layout_width="359dp"
-                android:layout_height="101dp"
-                android:layout_marginTop="8dp"
-                android:fontFamily="@font/akatab_semibold"
-                android:justificationMode="inter_word"
-                android:lineSpacingMultiplier="0.8"
-                android:text="Os campeonatos são realizados ao longo do ano, com pelo menos duas competições principais: A Copa Comunitária de Judô que reúne as crianças de várias comunidades locais e o Campeonato Regionais de Judô Infantil, onde nossos atletas competem com outras escolas e projetos de judô da região."
-                android:textAlignment="textStart"
-                android:textDirection="firstStrongRtl"
-                android:textIsSelectable="false"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.531"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/texto21" />
+    <TextView
+        android:id="@+id/descricao7"
+        android:layout_width="370dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="6dp"
+        android:justificationMode="inter_word"
+        android:textColor="@color/black"
+        android:text="Se você quiser ser voluntário ou inscrever uma criança, clique abaixo e participe desse movimento"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.485"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/subtitulo3" />
 
-            <TextView
-                android:id="@+id/texto25"
-                android:layout_width="360dp"
-                android:layout_height="75dp"
-                android:layout_marginTop="8dp"
-                android:fontFamily="@font/akatab_semibold"
-                android:justificationMode="inter_word"
-                android:lineSpacingMultiplier="0.8"
-                android:text="As aulas acontecem todos os finais de semana no centro comunitário. Contamos  com professores voluntários que acompanham o desenvolvimento das crianças, garantindo um ambiente seguro e acolhedor."
-                android:textAlignment="textStart"
-                android:textDirection="firstStrongRtl"
-                android:textIsSelectable="false"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.543"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/texto23" />
+    <Button
+        android:id="@+id/button_formulario"
+        android:layout_width="350dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="16dp"
+        android:backgroundTint="#FB8C00"
+        android:text="Quero ser um Voluntário"
+        android:textAppearance="@style/TextAppearance.AppCompat.Small"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/descricao7" />
 
-            <TextView
-                android:id="@+id/texto27"
-                android:layout_width="358dp"
-                android:layout_height="96dp"
-                android:layout_marginTop="8dp"
-                android:fontFamily="@font/akatab_semibold"
-                android:justificationMode="inter_word"
-                android:lineSpacingMultiplier="0.8"
-                android:text="Recife é um polo ativo de judô infantil, promovendo diversos campeonatos que incentivam a prática esportiva entre crianças e adolescentes. Esses eventos são organizados por instituições como a Liga Pernambucana de Judô (LIPEJU), a Federação Pernambucana de Judô (FPJU), o Sesc e projetos sociais locais."
-                android:textAlignment="textStart"
-                android:textDirection="firstStrongRtl"
-                android:textIsSelectable="false"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.541"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/texto26" />
-
-            <TextView
-                android:id="@+id/texto29"
-                android:layout_width="359dp"
-                android:layout_height="37dp"
-                android:layout_marginTop="8dp"
-                android:fontFamily="@font/akatab_semibold"
-                android:justificationMode="inter_word"
-                android:lineSpacingMultiplier="0.8"
-                android:text="Se você quiser ser voluntário ou inscrever uma criança, clique abaixo e participe desse movimento!"
-                android:textAlignment="center"
-                android:textDirection="firstStrongRtl"
-                android:textIsSelectable="false"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.541"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/texto28" />
-
-            <Button
-                android:id="@+id/button2"
-                android:layout_width="235dp"
-                android:layout_height="49dp"
-                android:layout_marginTop="20dp"
-                android:layout_marginBottom="50dp"
-                android:backgroundTint="#E24B1D"
-                android:text="Quero me tornar Voluntário"
-                android:textAlignment="textStart"
-                android:textDirection="anyRtl"
-                android:textSize="14sp"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.52"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/texto29" />
-        </androidx.constraintlayout.widget.ConstraintLayout>
-    </ScrollView>
 </androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>

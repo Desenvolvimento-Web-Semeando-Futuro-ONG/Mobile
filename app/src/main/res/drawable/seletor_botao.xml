@@ -1,0 +1,9 @@
+<!-- seletor_botao.xml -->
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+    <!-- Estado pressionado -->
+    <item android:state_pressed="true" android:drawable="@color/material_on_primary_emphasis_medium" />
+    <!-- Estado selecionado (clicado) -->
+    <item android:state_selected="true" android:drawable="@color/btn_text_color_selector" />
+    <!-- Estado padrão -->
+    <item android:drawable="@color/white" />
+</selector>

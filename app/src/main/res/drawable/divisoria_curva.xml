@@ -1,0 +1,5 @@
+    <shape xmlns:android="http://schemas.android.com/apk/res/android" android:shape="rectangle">
+        <solid android:color="#FFFFFF"/> <!-- Cor da divisória -->
+        <corners android:radius="30dp"/> <!-- Raio das pontas curvas -->
+    </shape>
+

@@ -1,12 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <array name="preloaded_fonts" translatable="false">
-        <item>@font/akatab_extrabold</item>
-        <item>@font/akatab_semibold</item>
-        <item>@font/oswald_bold</item>
         <item>@font/oswald_semibold</item>
         <item>@font/plus_jakarta_sans_bold</item>
-        <item>@font/plus_jakarta_sans_medium</item>
+        <item>@font/plus_jakarta_sans_extrabold</item>
+        <item>@font/plus_jakarta_sans_semibold</item>
         <item>@font/raleway_bold</item>
+        <item>@font/raleway_semibold</item>
     </array>
 </resources>

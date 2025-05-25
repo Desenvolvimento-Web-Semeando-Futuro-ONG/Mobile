@@ -1,0 +1,170 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/divisoria_curva"
+    android:fillViewport="false">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <ImageView
+            android:id="@+id/capa_artesanato"
+            android:layout_width="match_parent"
+            android:layout_height="350dp"
+            android:scaleType="centerCrop"
+            android:tint="#40321E1E"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/artesanato4"
+            tools:ignore="UseAppTint"
+            tools:src="@drawable/artesanato4" />
+
+        <TextView
+            android:id="@+id/titulo"
+            android:layout_width="363dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="248dp"
+            android:fontFamily="@font/plus_jakarta_sans_extrabold"
+            android:shadowColor="@color/black"
+            android:singleLine="false"
+            android:text="Oficina de Artesanato"
+            android:textAlignment="center"
+            android:textColor="#FDD835"
+            android:textDirection="inherit"
+            android:textSize="28sp"
+            app:layout_constraintBottom_toBottomOf="@+id/capa_judo"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.794" />
+
+        <View
+            android:id="@+id/divider2"
+            android:layout_width="match_parent"
+            android:layout_height="801dp"
+            android:layout_marginTop="328dp"
+            android:background="@drawable/divisoria_curva"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/capa_artesanato" />
+
+        <TextView
+            android:id="@+id/subtitulo_boa_idade2"
+            android:layout_width="370dp"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/raleway_bold"
+            android:text="Criando com as mãos, fortalecendo o coração"
+            android:textAlignment="center"
+            android:textColor="@color/black"
+            android:textSize="20sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.478"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/capa_artesanato" />
+
+        <TextView
+            android:id="@+id/descricao8"
+            android:layout_width="370dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:justificationMode="inter_word"
+            android:textColor="@color/black"
+            android:text="A Oficina de Artesanato promove a criatividade e o desenvolvimento de habilidades manuais por meio da confecção de panos de prato decorados e peças de ornamentação. Cada encontro é uma oportunidade para aprender novas técnicas, fortalecer vínculos e gerar renda com arte feita à mão."
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/subtitulo_boa_idade2" />
+
+        <ImageView
+            android:id="@+id/img_artesanato"
+            android:layout_width="180dp"
+            android:layout_height="180dp"
+            android:layout_marginTop="16dp"
+            android:scaleType="centerCrop"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.051"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/descricao8"
+            app:srcCompat="@drawable/artesanato6" />
+
+        <ImageView
+            android:id="@+id/img_artesanato4"
+            android:layout_width="180dp"
+            android:layout_height="180dp"
+            android:layout_marginTop="16dp"
+            android:scaleType="centerCrop"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.938"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/descricao8"
+            app:srcCompat="@drawable/artesanato9" />
+
+        <TextView
+            android:id="@+id/descricao10"
+            android:layout_width="370dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:justificationMode="inter_word"
+            android:textColor="@color/black"
+            android:text="A oficina acontece todas sa sextas, às 14h. Todos os moradores da comunidade estão convidados."
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/img_artesanato" />
+
+        <ImageView
+            android:id="@+id/img_artesanato2"
+            android:layout_width="180dp"
+            android:layout_height="180dp"
+            android:layout_marginTop="20dp"
+            android:scaleType="centerInside"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.051"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/descricao10"
+            app:srcCompat="@drawable/artesanato7" />
+
+        <ImageView
+            android:id="@+id/img_artesanato3"
+            android:layout_width="180dp"
+            android:layout_height="180dp"
+            android:layout_marginTop="20dp"
+            android:scaleType="centerInside"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.948"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/descricao10"
+            app:srcCompat="@drawable/artesanato2" />
+
+        <TextView
+            android:id="@+id/descricao11"
+            android:layout_width="370dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="224dp"
+            android:justificationMode="inter_word"
+            android:textColor="@color/black"
+            android:text="Se você quiser ser voluntário ou inscrever uma criança, clique abaixo e participe desse movimento"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/descricao10" />
+
+        <Button
+            android:id="@+id/button_formulario3"
+            android:layout_width="350dp"
+            android:layout_height="50dp"
+            android:layout_marginTop="16dp"
+            android:backgroundTint="#FB8C00"
+            android:text="Quero ser um Voluntário"
+            android:textAppearance="@style/TextAppearance.AppCompat.Small"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/descricao11" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>

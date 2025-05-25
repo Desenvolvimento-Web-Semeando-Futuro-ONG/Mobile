@@ -12,16 +12,20 @@ public class JudoPageActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.judo_page); // ou o nome correto do layout
+        setContentView(R.layout.judo_page); // Certifique-se de que o layout XML está com este nome
 
-        Button buttonVoluntario = findViewById(R.id.button2);
+        // Conecta o botão pelo ID
+        Button botaoFormulario = findViewById(R.id.button_formulario);
 
-        buttonVoluntario.setOnClickListener(new View.OnClickListener() {
+        // Define o clique para abrir a nova tela
+        botaoFormulario.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(JudoPageActivity.this, FormsActivity.class);
+                Intent intent = new Intent(JudoPageActivity.this, FormularioActivity.class);
                 startActivity(intent);
             }
         });
+
+
     }
 }

@@ -1,0 +1,215 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:fillViewport="true">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#E6BD154F">
+
+        <ImageView
+            android:id="@+id/img_boa_idade"
+            android:layout_width="match_parent"
+            android:layout_height="240dp"
+            android:scaleType="fitStart"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/boaidade_2" />
+
+        <TextView
+            android:id="@+id/titulo_boa_idade"
+            android:layout_width="363dp"
+            android:layout_height="50dp"
+            android:layout_marginTop="240dp"
+            android:fontFamily="@font/plus_jakarta_sans_extrabold"
+            android:shadowColor="@color/black"
+            android:singleLine="false"
+            android:text="Grupo da Boa idade"
+            android:textAlignment="center"
+            android:textColor="#FDD835"
+            android:textDirection="inherit"
+            android:textSize="28sp"
+            app:layout_constraintBottom_toBottomOf="@+id/capa_judo"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.783" />
+
+        <View
+            android:id="@+id/divider_boa_idade"
+            android:layout_width="match_parent"
+            android:layout_height="1390dp"
+            android:layout_marginTop="20dp"
+            android:background="@drawable/divisoria_curva"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/titulo_boa_idade" />
+
+        <TextView
+            android:id="@+id/subtitulo_boa_idade1"
+            android:layout_width="370dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            android:fontFamily="@font/raleway_bold"
+            android:text="Experiência que inspira, energia que contagia!"
+            android:textAlignment="center"
+            android:textColor="@color/black"
+            android:textSize="20sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/divider_boa_idade" />
+
+        <TextView
+            android:id="@+id/descricao_boa_idade"
+            android:layout_width="370dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:justificationMode="inter_word"
+            android:textColor="@color/black"
+            android:text="O projeto Grupo da Boa Idade é realizado todas as quartas-feiras, às 14h30, com o objetivo de promover convivência, aprendizado e autoestima entre mulheres e idosos da comunidade onde a ONG Semeando o Futuro está inserida. A iniciativa oferece oficinas de corte e costura, além de artesanato. Criando um espaço acolhedor onde elas possam aprender novas habilidades e compartilhar experiencias de vida."
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/subtitulo_boa_idade1" />
+
+        <TextView
+            android:id="@+id/descricao_boa_idade2"
+            android:layout_width="370dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:justificationMode="inter_word"
+            android:textColor="@color/black"
+            android:text="Durante as atividades, as participantes confeccionam caixas organizadoras, peças decorativas para o lar, panos de prato, bolsas e muitos outros itens criativos e úteis. Esses momentos são mais do que oficinas manuais - são oportunidades de expressão pessoal, troca de saberes e fortalecimento de vínculos entre as mulheres da comunidade."
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/descricao_boa_idade" />
+
+        <ImageView
+            android:id="@+id/img_boa_idade1"
+            android:layout_width="180dp"
+            android:layout_height="180dp"
+            android:layout_marginTop="20dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.06"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/descricao_boa_idade2"
+            app:srcCompat="@drawable/img3" />
+
+        <ImageView
+            android:id="@+id/img_boa_idade2"
+            android:layout_width="180dp"
+            android:layout_height="180dp"
+            android:layout_marginTop="20dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.925"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/descricao_boa_idade2"
+            app:srcCompat="@drawable/img4" />
+
+        <TextView
+            android:id="@+id/subtitulo_boa_idade"
+            android:layout_width="370dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="216dp"
+            android:fontFamily="@font/raleway_bold"
+            android:text="Momentos"
+            android:textAlignment="center"
+            android:textColor="@color/black"
+            android:textSize="20sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/descricao_boa_idade2" />
+
+        <TextView
+            android:id="@+id/descricao_boa_idade3"
+            android:layout_width="370dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:justificationMode="inter_word"
+            android:textColor="@color/black"
+            android:text="As oficinas do Grupo da Boa Idade são organizadas com carinho para oferecer um espaço de aprendizado, acolhimento e convivência entre as mulheres da comunidade. Embora o projeto tenha surgido com foco nas Idosas da comunidade, hoje ele conta com a participação das mulheres em geral, mulheres de todas idades, promovendo o diálogo entre gerações e o fortalecimento dos laços comunitários. Os encontros acontecem semanalmente, com atividades que envolvem costura, bordado, pintura e a produção de diversos itens artesanais e decorativos."
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/subtitulo_boa_idade" />
+
+        <TextView
+            android:id="@+id/descricao_boa_idade4"
+            android:layout_width="370dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:justificationMode="inter_word"
+            android:textColor="@color/black"
+            android:text="Além de estimular a criatividade e a autoestima, o projeto tem como objetivo valorizar a história de vida de cada participante e criar um ambiente de apoio mútuo. Durante as oficinas, é comum que as mulheres compartilhem suas experiências, aprendam umas com as outras e se envolvam ativamente na criação de peças únicas e cheias de significado. Para enriquecer ainda mais os encontros, a ONG também busca voluntários com experiência em artesanato e trabalhos manuais, que contribuam com seus conhecimentos e ajudem a orientar as participantes nas confecções."
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/descricao_boa_idade3" />
+
+        <ImageView
+            android:id="@+id/img_boa_idade3"
+            android:layout_width="180dp"
+            android:layout_height="180dp"
+            android:layout_marginTop="20dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.06"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/descricao_boa_idade4"
+            app:srcCompat="@drawable/idosas2" />
+
+        <ImageView
+            android:id="@+id/img_boa_idade4"
+            android:layout_width="180dp"
+            android:layout_height="180dp"
+            android:layout_marginTop="20dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.925"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/descricao_boa_idade4"
+            app:srcCompat="@drawable/idosas1" />
+
+        <TextView
+            android:id="@+id/subtitulo5"
+            android:layout_width="370dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="216dp"
+            android:fontFamily="@font/raleway_bold"
+            android:text="Quer fazer parte disso?"
+            android:textAlignment="center"
+            android:textColor="#FB8C00"
+            android:textSize="20sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/descricao_boa_idade4" />
+
+        <TextView
+            android:id="@+id/descricao9"
+            android:layout_width="370dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="6dp"
+            android:justificationMode="inter_word"
+            android:textColor="@color/black"
+            android:text="Se você quiser ser voluntário ou inscrever uma criança, clique abaixo e participe desse movimento"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/subtitulo5" />
+
+        <Button
+            android:id="@+id/button_formulario2"
+            android:layout_width="350dp"
+            android:layout_height="50dp"
+            android:layout_marginTop="16dp"
+            android:backgroundTint="#FB8C00"
+            android:text="Quero ser um Voluntário"
+            android:textAppearance="@style/TextAppearance.AppCompat.Small"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/descricao9" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>

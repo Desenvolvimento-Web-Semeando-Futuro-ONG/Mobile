@@ -1,0 +1,277 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fillViewport="true">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        tools:context=".DoacaoActivity"
+        tools:ignore="ExtraText">
+
+        <!-- Título Superior -->
+        <TextView
+            android:id="@+id/titulo_topo"
+            android:layout_width="match_parent"
+            android:layout_height="150dp"
+            android:background="#6C00ACC1"
+            android:fontFamily="@font/raleway_bold"
+            android:gravity="center"
+            android:paddingStart="16dp"
+            android:paddingEnd="16dp"
+            android:text="Sua doação, um gesto de amor que muda vidas!"
+            android:textColor="@color/white"
+            android:textSize="24sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <!-- WhatsApp flutuante -->
+
+        <!-- Título Central -->
+
+        <View
+            android:id="@+id/divider4"
+            android:layout_width="match_parent"
+            android:layout_height="700dp"
+            android:layout_marginTop="124dp"
+            android:background="@drawable/divisoria_curva"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/titulo_topo" />
+
+        <!-- Bloco Valor -->
+
+        <TextView
+            android:id="@+id/titulo_doacao"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="124dp"
+            android:padding="12dp"
+            android:text="Transforme vidas com sua doação"
+            android:textColor="#2A3A96"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.491"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageView
+            android:id="@+id/imagem_valor"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_marginStart="28dp"
+            android:layout_marginTop="12dp"
+            android:scaleType="centerCrop"
+            android:src="@drawable/doacao_1"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/titulo_doacao" />
+
+        <TextView
+            android:id="@+id/titulo_valor"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:text="Valor"
+            android:textColor="@color/black"
+            android:textStyle="bold"
+            app:layout_constraintStart_toEndOf="@id/imagem_valor"
+            app:layout_constraintTop_toTopOf="@id/imagem_valor" />
+
+        <TextView
+            android:id="@+id/descricao_valor"
+            android:layout_width="215dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginEnd="8dp"
+            android:justificationMode="inter_word"
+            android:text="Sua doação ajudará a pagar despesas com água, energia e internet."
+            android:textColor="@color/black"
+            android:textSize="12sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toEndOf="@id/imagem_valor"
+            app:layout_constraintTop_toBottomOf="@id/titulo_valor" />
+
+        <Button
+            android:id="@+id/btn_valor"
+            android:layout_width="100dp"
+            android:layout_height="40dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:background="@drawable/borda_botao"
+            android:text="Escolher"
+            android:textColor="#FB8C00"
+            android:textSize="12sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toEndOf="@id/imagem_valor"
+            app:layout_constraintTop_toBottomOf="@id/descricao_valor"
+            tools:ignore="TouchTargetSizeCheck" />
+
+        <ImageView
+            android:id="@+id/imagem_materiais"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_marginStart="28dp"
+            android:layout_marginTop="20dp"
+            android:scaleType="centerCrop"
+            android:src="@drawable/doacao_3"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/imagem_valor" />
+
+        <TextView
+            android:id="@+id/titulo_materiais"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="24dp"
+            android:text="Materiais"
+            android:textColor="@color/black"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toEndOf="@id/imagem_materiais"
+            app:layout_constraintTop_toBottomOf="@+id/btn_valor" />
+
+        <TextView
+            android:id="@+id/descricao_materiais"
+            android:layout_width="215dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginEnd="8dp"
+            android:justificationMode="inter_word"
+            android:text="Materiais como Kimonos, cola, papel, tinta guache, tesouras etc."
+            android:textColor="@color/black"
+            android:textSize="12sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toEndOf="@id/imagem_materiais"
+            app:layout_constraintTop_toBottomOf="@id/titulo_materiais" />
+
+        <!-- Seção Dados Pessoais -->
+
+        <Button
+            android:id="@+id/btn_valor2"
+            android:layout_width="100dp"
+            android:layout_height="40dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:background="@drawable/borda_botao"
+            android:text="Escolher"
+            android:textColor="#FB8C00"
+            android:textSize="12sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toEndOf="@+id/imagem_materiais"
+            app:layout_constraintTop_toBottomOf="@+id/descricao_materiais"
+            tools:ignore="TouchTargetSizeCheck" />
+
+        <TextView
+            android:id="@+id/titulo_dados"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="56dp"
+            android:text="DADOS PESSOAIS"
+            android:textColor="@color/black"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.49"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/imagem_materiais" />
+
+        <EditText
+            android:id="@+id/input_nome"
+            android:layout_width="340dp"
+            android:layout_height="wrap_content"
+            android:hint="Nome"
+            android:imeOptions="actionNext"
+            android:importantForAutofill="no"
+            android:inputType="textCapWords"
+            android:maxLength="50"
+            android:singleLine="false"
+            android:textColor="@color/black"
+            android:textColorHint="#80000000"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/titulo_dados"
+            tools:ignore="TouchTargetSizeCheck" />
+
+        <EditText
+            android:id="@+id/input_cpf"
+            android:layout_width="340dp"
+            android:layout_height="wrap_content"
+            android:hint="Digite seu CPF ou CNPJ"
+            android:inputType="number"
+            android:textColor="@color/black"
+            android:textColorHint="#80000000"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/input_nome"
+            tools:ignore="TouchTargetSizeCheck" />
+
+        <EditText
+            android:id="@+id/input_telefone"
+            android:layout_width="340dp"
+            android:layout_height="wrap_content"
+            android:drawableStart="@drawable/baseline_local_phone_24"
+            android:hint="Telefone"
+            android:inputType="phone"
+            android:textColor="@color/black"
+            android:textColorHint="#80000000"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/input_cpf"
+            tools:ignore="TouchTargetSizeCheck" />
+
+        <EditText
+            android:id="@+id/input_email"
+            android:layout_width="340dp"
+            android:layout_height="wrap_content"
+            android:drawableStart="@drawable/baseline_attach_email_24"
+            android:hint="E-mail"
+            android:inputType="textEmailAddress"
+            android:textColor="@color/black"
+            android:textColorHint="#80000000"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/input_telefone"
+            tools:ignore="TouchTargetSizeCheck" />
+
+        <EditText
+            android:id="@+id/input_valor"
+            android:layout_width="340dp"
+            android:layout_height="wrap_content"
+            android:hint="Digite o valor"
+            android:inputType="numberDecimal"
+            android:textColor="@color/black"
+            android:textColorHint="#80000000"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/input_email"
+            tools:ignore="TouchTargetSizeCheck" />
+
+        <Button
+            android:id="@+id/btn_pix"
+            android:layout_width="350dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="32dp"
+            android:layout_marginBottom="8dp"
+            android:backgroundTint="#82E547"
+            android:text="Pix"
+            android:textColor="@android:color/black"
+            android:textSize="16sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.488"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/input_valor"
+            app:layout_constraintVertical_bias="0.0" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>

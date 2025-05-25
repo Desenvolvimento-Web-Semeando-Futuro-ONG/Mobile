@@ -1,101 +1,71 @@
-package Projeto.semear;
+package Projeto.semear;//package Projeto.semear;
+public class ApiRequestTask extends android.os.AsyncTask<String, Void, ApiRequestTask.Result> {
+    public interface Listener {
+        void onResult(int statusCode, String response);
+    }
 
-import android.content.Context;
-import android.os.AsyncTask;
-import android.util.Log;
-import android.widget.Toast;
-import org.json.JSONObject;
-import java.io.BufferedReader;
-import java.io.BufferedWriter;
-import java.io.InputStream;
-import java.io.OutputStream;
-import java.io.OutputStreamWriter;
-import java.io.InputStreamReader;
-import java.net.HttpURLConnection;
-import java.net.URL;
+    private final String method;
+    private final String url;
+    private final String jsonData;
+    private final Listener listener;
 
-public class ApiRequestTask extends AsyncTask<Void, Void, String> {
+    public ApiRequestTask(String method, String url, String jsonData, Listener listener) {
+        this.method = method;
+        this.url = url;
+        this.jsonData = jsonData;
+        this.listener = listener;
+    }
 
-    private Context context;
-    private Exception exception;
-    private String apiUrl;
-    private JSONObject postData; // Dados a serem enviados no corpo da requisição (JSON)
 
-    public ApiRequestTask(Context context, String apiUrl, JSONObject postData) {
-        this.context = context;
-        this.apiUrl = apiUrl;
-        this.postData = postData;
+    public static class Result {
+        int statusCode;
+        String response;
+        Result(int code, String resp) {
+            statusCode = code;
+            response = resp;
+        }
     }
 
     @Override
-    protected String doInBackground(Void... voids) {
-        String response = "";
+    protected Result doInBackground(String... ignored) {
+        java.net.HttpURLConnection connection = null;
         try {
-            URL url = new URL(apiUrl);
-            HttpURLConnection connection = (HttpURLConnection) url.openConnection();
-            connection.setReadTimeout(10000);
-            connection.setConnectTimeout(15000);
-            connection.setRequestMethod("POST");
-            connection.setRequestProperty("Content-Type", "application/json; charset=UTF-8");
-            connection.setDoInput(true);
+            java.net.URL urlObj = new java.net.URL(url);
+            connection = (java.net.HttpURLConnection) urlObj.openConnection();
+            connection.setRequestMethod(method);
+            connection.setRequestProperty("Content-Type", "application/json; utf-8");
+            connection.setRequestProperty("Accept", "application/json");
             connection.setDoOutput(true);
 
-            // Envia o JSON no corpo da requisição
-            OutputStream os = connection.getOutputStream();
-            BufferedWriter writer = new BufferedWriter(new OutputStreamWriter(os, "UTF-8"));
-            writer.write(postData.toString());
-            writer.flush();
-            writer.close();
-            os.close();
-
-            // Lê a resposta
-            int responseCode = connection.getResponseCode();
-            InputStream inputStream;
-            if (responseCode < HttpURLConnection.HTTP_BAD_REQUEST) {
-                inputStream = connection.getInputStream();
-            } else {
-                inputStream = connection.getErrorStream();
+            if (jsonData != null) {
+                try (java.io.OutputStream os = connection.getOutputStream()) {
+                    byte[] input = jsonData.getBytes("utf-8");
+                    os.write(input, 0, input.length);
+                }
             }
 
-            BufferedReader reader = new BufferedReader(new InputStreamReader(inputStream));
-            StringBuilder stringBuilder = new StringBuilder();
-            String line;
+            int code = connection.getResponseCode();
+            java.io.InputStream is = (code < 400) ? connection.getInputStream() : connection.getErrorStream();
 
-            while ((line = reader.readLine()) != null) {
-                stringBuilder.append(line);
+            java.io.BufferedReader br = new java.io.BufferedReader(new java.io.InputStreamReader(is, "utf-8"));
+            StringBuilder response = new StringBuilder();
+            String responseLine;
+            while ((responseLine = br.readLine()) != null) {
+                response.append(responseLine.trim());
             }
-            reader.close();
 
-            response = stringBuilder.toString();
+            return new Result(code, response.toString());
 
         } catch (Exception e) {
-            this.exception = e;
-            Log.e("API_ERROR", "Erro na requisição", e);
+            e.printStackTrace();
+            return new Result(500, "Erro: " + e.getMessage());
+        } finally {
+            if (connection != null) connection.disconnect();
         }
-        return response;
     }
 
     @Override
-    protected void onPostExecute(String result) {
-        super.onPostExecute(result);
-        if (exception != null) {
-            Toast.makeText(context, "Erro ao acessar API: " + exception.getMessage(), Toast.LENGTH_LONG).show();
-            Log.e("API_ERROR", "Erro no onPostExecute", exception);
-        } else {
-            Toast.makeText(context, "Resposta da API recebida!", Toast.LENGTH_SHORT).show();
-            Log.d("RespostaAPI", result);
-
-            // Aqui você pode tratar o resultado, por exemplo extrair o token JWT do JSON:
-            try {
-                JSONObject jsonResponse = new JSONObject(result);
-                if (jsonResponse.has("token")) {
-                    String token = jsonResponse.getString("token");
-                    Log.d("TOKEN_JWT", token);
-                    // Salve o token em SharedPreferences, variável global, etc. conforme sua necessidade
-                }
-            } catch (Exception ex) {
-                Log.e("API_ERROR", "Erro ao processar JSON de resposta", ex);
-            }
-        }
+    protected void onPostExecute(Result result) {
+        if (listener != null) listener.onResult(result.statusCode, result.response);
     }
 }

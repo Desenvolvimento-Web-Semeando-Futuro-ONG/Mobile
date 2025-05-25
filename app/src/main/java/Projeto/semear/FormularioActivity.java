@@ -1,6 +1,7 @@
 package Projeto.semear;
 
 import android.content.Intent;
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.InputFilter;
@@ -16,10 +17,16 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import org.json.JSONObject;
 
-import java.util.Locale;
+import java.io.BufferedReader;
+import java.io.InputStreamReader;
+import java.io.OutputStream;
+import java.net.HttpURLConnection;
+import java.net.URL;
+import java.nio.charset.StandardCharsets;
 
 public class FormularioActivity extends AppCompatActivity {
 
+    private static final String BASE_URL = "http://10.0.2.2:5189";
     private EditText edtNome, edtTelefone, edtCpf, edtEmail, edtSkills;
     private CheckBox cbManha, cbTarde, cbNoite;
     private Button btnEnviar;
@@ -41,7 +48,7 @@ public class FormularioActivity extends AppCompatActivity {
 
         btnEnviar = findViewById(R.id.btn_enviar2);
 
-        // Filtro para bloquear números e caracteres especiais no nome, mas aceitar letras, espaços e hífen
+        // Filtro Nome
         edtNome.setFilters(new InputFilter[]{
                 new InputFilter.LengthFilter(50),
                 (source, start, end, dest, dstart, dend) -> {
@@ -92,20 +99,21 @@ public class FormularioActivity extends AppCompatActivity {
             }
         });
 
-        // Máscara Telefone (xx) xxxxx-xxxx
+        // Máscara Telefone
         edtTelefone.setKeyListener(DigitsKeyListener.getInstance("0123456789"));
         edtTelefone.addTextChangedListener(new MaskWatcher("(##) #####-####", edtTelefone));
 
-        // Máscara CPF xxx.xxx.xxx-xx
+        // Máscara CPF
         edtCpf.setKeyListener(DigitsKeyListener.getInstance("0123456789"));
         edtCpf.addTextChangedListener(new MaskWatcher("###.###.###-##", edtCpf));
 
-        // Filtro para skills (letras, espaço e hífens)
+        // Filtro Skills: letras, espaço, hífen, vírgula, acentos e ç/Ç
         edtSkills.setFilters(new InputFilter[]{
                 (source, start, end, dest, dstart, dend) -> {
                     for (int i = start; i < end; i++) {
                         char c = source.charAt(i);
-                        if (!Character.isLetter(c) && c != ' ' && c != '-') {
+                        if (!(Character.isLetter(c) || c == ' ' || c == '-' || c == ',' || c == 'ç' || c == 'Ç'
+                                || String.valueOf(c).matches("[áàâãéèêíïóôõöúçñÁÀÂÃÉÈÊÍÏÓÔÕÖÚÇÑ]"))) {
                             return "";
                         }
                     }
@@ -113,36 +121,90 @@ public class FormularioActivity extends AppCompatActivity {
                 }
         });
 
+        // Força e-mail minúsculo enquanto digita
+        edtEmail.addTextChangedListener(new TextWatcher() {
+            @Override public void beforeTextChanged(CharSequence s, int start, int count, int after) { }
+            @Override public void onTextChanged(CharSequence s, int start, int before, int count) { }
+            @Override
+            public void afterTextChanged(Editable s) {
+                String email = s.toString();
+                if (!email.equals(email.toLowerCase())) {
+                    edtEmail.removeTextChangedListener(this);
+                    edtEmail.setText(email.toLowerCase());
+                    edtEmail.setSelection(edtEmail.getText().length());
+                    edtEmail.addTextChangedListener(this);
+                }
+            }
+        });
+
+        // ENVIO
+//        btnEnviar.setOnClickListener(v -> {
+//            if (validarCampos()) {
+//                try {
+//                    JSONObject json = new JSONObject();
+//                    json.put("Nome", edtNome.getText().toString().trim());
+//                    json.put("Telefone", edtTelefone.getText().toString().trim());
+//                    json.put("CPF", edtCpf.getText().toString().trim());
+//                    json.put("Email", edtEmail.getText().toString().trim());
+//                    json.put("Habilidades", edtSkills.getText().toString().trim());
+//
+//                    // Disponibilidade
+//                    StringBuilder disponibilidade = new StringBuilder();
+//                    if (cbManha.isChecked()) disponibilidade.append("manhã, ");
+//                    if (cbTarde.isChecked()) disponibilidade.append("tarde, ");
+//                    if (cbNoite.isChecked()) disponibilidade.append("noite, ");
+//                    if (disponibilidade.length() > 0)
+//                        disponibilidade.setLength(disponibilidade.length() - 2);
+//
+//                    json.put("Disponibilidade", disponibilidade.toString());
+//
+//                    // Envia para backend
+//                    new ApiTask().execute(BASE_URL + "/api/Voluntario/cadastrar", json.toString());
+//
+//                } catch (Exception e) {
+//                    Toast.makeText(this, "Erro ao montar JSON", Toast.LENGTH_LONG).show();
+//                }
+//            }
+//        });
+
         btnEnviar.setOnClickListener(v -> {
             if (validarCampos()) {
                 try {
                     JSONObject json = new JSONObject();
-                    json.put("nomeCompleto", edtNome.getText().toString().trim());
-                    json.put("telefone", edtTelefone.getText().toString().trim());
-                    json.put("cpf", edtCpf.getText().toString().trim());
-                    json.put("email", edtEmail.getText().toString().trim());
-                    json.put("skills", edtSkills.getText().toString().trim());
+                    json.put("Nome", edtNome.getText().toString().trim());
+                    // CPF e Telefone só com números!
+                    json.put("CPF", edtCpf.getText().toString().replaceAll("[^0-9]", ""));
+                    json.put("Email", edtEmail.getText().toString().trim());
+                    json.put("Telefone", edtTelefone.getText().toString().replaceAll("[^0-9]", ""));
+                    json.put("Habilidades", edtSkills.getText().toString().trim());
 
-                    JSONObject turnos = new JSONObject();
-                    turnos.put("manha", cbManha.isChecked());
-                    turnos.put("tarde", cbTarde.isChecked());
-                    turnos.put("noite", cbNoite.isChecked());
-                    json.put("disponibilidade", turnos);
+                    // Monta a string de disponibilidade
+                    StringBuilder disponibilidade = new StringBuilder();
+                    if (cbManha.isChecked()) disponibilidade.append("manhã, ");
+                    if (cbTarde.isChecked()) disponibilidade.append("tarde, ");
+                    if (cbNoite.isChecked()) disponibilidade.append("noite, ");
+                    if (disponibilidade.length() > 0)
+                        disponibilidade.setLength(disponibilidade.length() - 2);
 
-                    // Exibindo a mensagem de sucesso
-                    Toast.makeText(this, "Dados enviados com sucesso!", Toast.LENGTH_LONG).show();
+                    json.put("Disponibilidade", disponibilidade.toString());
 
-                    // Redireciona para a página inicial
-                    Intent intent = new Intent(FormularioActivity.this, LandingPageActivity.class); // ou MainActivity.class
-                    startActivity(intent);
-                    finish(); // Fecha a activity atual
+                    // Campos opcionais: pode enviar null se não for usar
+                    json.put("ProjetoId", JSONObject.NULL); // ou um número, se quiser
+                    json.put("FuncaoDesejada", JSONObject.NULL);
+
+                    // Envio POST para o endpoint correto
+                    new ApiTask().execute(
+                            BASE_URL + "/api/Voluntario/cadastrar",
+                            json.toString()
+                    );
                 } catch (Exception e) {
-                    Toast.makeText(this, "Erro ao montar JSON", Toast.LENGTH_LONG).show();
+                    Toast.makeText(this, "Erro ao montar JSON: " + e.getMessage(), Toast.LENGTH_LONG).show();
                 }
             }
         });
     }
 
+    // --- Validação ---
     private boolean validarCampos() {
         boolean valido = true;
 
@@ -150,7 +212,7 @@ public class FormularioActivity extends AppCompatActivity {
         if (nome.isEmpty()) {
             edtNome.setError("Campo obrigatório");
             valido = false;
-        } else if (!nome.matches("([A-Za-zÀ-ÿ]+[\\s-]?)+")) {
+        } else if (!nome.matches("([A-Za-zÀ-ÿçÇ]+[\\s-]?)+")) {
             edtNome.setError("Nome inválido, sem números");
             valido = false;
         } else {
@@ -183,6 +245,9 @@ public class FormularioActivity extends AppCompatActivity {
         if (email.isEmpty()) {
             edtEmail.setError("Campo obrigatório");
             valido = false;
+        } else if (!email.equals(email.toLowerCase())) {
+            edtEmail.setError("O e-mail não pode conter letras maiúsculas");
+            valido = false;
         } else if (!Patterns.EMAIL_ADDRESS.matcher(email).matches()) {
             edtEmail.setError("Email inválido");
             valido = false;
@@ -194,7 +259,7 @@ public class FormularioActivity extends AppCompatActivity {
         if (skills.isEmpty() || !temDuasPalavras(skills)) {
             edtSkills.setError("Informe ao menos 2 características suas");
             valido = false;
-        } else if (!skills.matches("([A-Za-zÀ-ÿ]+[\\s-]?)+")) {
+        } else if (!skills.matches("^[A-Za-zÀ-ÿçÇ ,\\-]+$")) {
             edtSkills.setError("Skills inválidas, sem números ou caracteres especiais");
             valido = false;
         } else {
@@ -210,16 +275,14 @@ public class FormularioActivity extends AppCompatActivity {
     }
 
     private boolean temDuasPalavras(String texto) {
-        String[] partes = texto.trim().split("\\s+");
+        String[] partes = texto.trim().split("[\\s,]+");
         return partes.length >= 2;
     }
 
     private String capitalizeWords(String str) {
         if (str == null || str.isEmpty()) return str;
-
         StringBuilder capitalized = new StringBuilder();
         boolean capitalizeNext = true;
-
         for (int i = 0; i < str.length(); i++) {
             char c = str.charAt(i);
             if (Character.isWhitespace(c)) {
@@ -246,12 +309,8 @@ public class FormularioActivity extends AppCompatActivity {
             this.isUpdating = false;
         }
 
-        @Override
-        public void beforeTextChanged(CharSequence s, int start, int count, int after) { }
-
-        @Override
-        public void onTextChanged(CharSequence s, int start, int before, int count) { }
-
+        @Override public void beforeTextChanged(CharSequence s, int start, int count, int after) { }
+        @Override public void onTextChanged(CharSequence s, int start, int before, int count) { }
         @Override
         public void afterTextChanged(Editable s) {
             if (isUpdating) return;
@@ -276,7 +335,6 @@ public class FormularioActivity extends AppCompatActivity {
 
             editText.setText(masked.toString());
             editText.setSelection(masked.length());
-
             isUpdating = false;
         }
 
@@ -284,4 +342,76 @@ public class FormularioActivity extends AppCompatActivity {
             return s.replaceAll("[^\\d]", "");
         }
     }
+
+    private class ApiTask extends android.os.AsyncTask<String, Void, ApiResponse> {
+        @Override
+        protected ApiResponse doInBackground(String... params) {
+            HttpURLConnection connection = null;
+            try {
+                URL url = new URL(params[0]);
+                connection = (HttpURLConnection) url.openConnection();
+                connection.setRequestMethod("POST");
+                connection.setRequestProperty("Content-Type", "application/json");
+                connection.setRequestProperty("Accept", "application/json");
+                connection.setConnectTimeout(15000);
+                connection.setReadTimeout(15000);
+                connection.setDoOutput(true);
+
+                try (OutputStream os = connection.getOutputStream()) {
+                    os.write(params[1].getBytes(StandardCharsets.UTF_8));
+                }
+
+                int statusCode = connection.getResponseCode();
+                StringBuilder response = new StringBuilder();
+
+                BufferedReader br = new BufferedReader(
+                        new InputStreamReader(statusCode < 400 ?
+                                connection.getInputStream() : connection.getErrorStream()));
+
+                String line;
+                while ((line = br.readLine()) != null) {
+                    response.append(line);
+                }
+                br.close();
+
+                return new ApiResponse(statusCode, response.toString());
+
+            } catch (Exception e) {
+                return new ApiResponse(500, "Exception: " + e.getMessage());
+            } finally {
+                if (connection != null) connection.disconnect();
+            }
+        }
+
+        @Override
+        protected void onPostExecute(ApiResponse response) {
+            if (response.statusCode >= 200 && response.statusCode < 300) {
+                Toast.makeText(FormularioActivity.this, "Cadastro realizado!", Toast.LENGTH_SHORT).show();
+                startActivity(new Intent(FormularioActivity.this, LandingPageActivity.class));
+                finish();
+            } else {
+                Toast.makeText(FormularioActivity.this,
+                        "Erro ao enviar: " + response.statusCode + "\n" + response.body,
+                        Toast.LENGTH_LONG).show();
+            }
+        }
+    }
+
+    private static class ApiResponse {
+        int statusCode;
+        String body;
+        ApiResponse(int statusCode, String body) {
+            this.statusCode = statusCode;
+            this.body = body;
+        }
+    }
+//    private static class ApiResponse {
+//        int statusCode;
+//        String body;
+//
+//        ApiResponse(int statusCode, String body) {
+//            this.statusCode = statusCode;
+//            this.body = body;
+//        }
+//    }
 }

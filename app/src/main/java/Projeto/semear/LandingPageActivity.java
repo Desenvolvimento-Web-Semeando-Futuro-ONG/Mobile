@@ -48,11 +48,5 @@ public class LandingPageActivity extends BaseZapActivity {
             startActivity(intent);
         });
 
-//        String ipDoBackend = "192.168.1.8";  // seu IP correto
-//        String url = "http://" + ipDoBackend + ":5189/api/controller";  // ajuste o endpoint conforme sua API
-//
-//        Log.d("TesteLog", "Vai chamar ApiRequestTask com URL: " + url);
-//
-//        new ApiRequestTask(this).execute(url);
     }
 }

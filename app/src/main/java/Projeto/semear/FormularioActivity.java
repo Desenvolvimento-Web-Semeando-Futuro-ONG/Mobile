@@ -1,22 +1,17 @@
 package Projeto.semear;
 
 import android.content.Intent;
-import android.os.AsyncTask;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.InputFilter;
 import android.text.TextWatcher;
 import android.text.method.DigitsKeyListener;
-import android.util.Patterns;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.Toast;
-
 import androidx.appcompat.app.AppCompatActivity;
-
 import org.json.JSONObject;
-
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.io.OutputStream;
@@ -26,7 +21,7 @@ import java.nio.charset.StandardCharsets;
 
 public class FormularioActivity extends AppCompatActivity {
 
-    private static final String BASE_URL = "http://10.0.2.2:5189";
+    private static final String BASE_URL = "https://back-end-n1cl.onrender.com";
     private EditText edtNome, edtTelefone, edtCpf, edtEmail, edtSkills;
     private CheckBox cbManha, cbTarde, cbNoite;
     private Button btnEnviar;
@@ -121,52 +116,6 @@ public class FormularioActivity extends AppCompatActivity {
                 }
         });
 
-        // Força e-mail minúsculo enquanto digita
-        edtEmail.addTextChangedListener(new TextWatcher() {
-            @Override public void beforeTextChanged(CharSequence s, int start, int count, int after) { }
-            @Override public void onTextChanged(CharSequence s, int start, int before, int count) { }
-            @Override
-            public void afterTextChanged(Editable s) {
-                String email = s.toString();
-                if (!email.equals(email.toLowerCase())) {
-                    edtEmail.removeTextChangedListener(this);
-                    edtEmail.setText(email.toLowerCase());
-                    edtEmail.setSelection(edtEmail.getText().length());
-                    edtEmail.addTextChangedListener(this);
-                }
-            }
-        });
-
-        // ENVIO
-//        btnEnviar.setOnClickListener(v -> {
-//            if (validarCampos()) {
-//                try {
-//                    JSONObject json = new JSONObject();
-//                    json.put("Nome", edtNome.getText().toString().trim());
-//                    json.put("Telefone", edtTelefone.getText().toString().trim());
-//                    json.put("CPF", edtCpf.getText().toString().trim());
-//                    json.put("Email", edtEmail.getText().toString().trim());
-//                    json.put("Habilidades", edtSkills.getText().toString().trim());
-//
-//                    // Disponibilidade
-//                    StringBuilder disponibilidade = new StringBuilder();
-//                    if (cbManha.isChecked()) disponibilidade.append("manhã, ");
-//                    if (cbTarde.isChecked()) disponibilidade.append("tarde, ");
-//                    if (cbNoite.isChecked()) disponibilidade.append("noite, ");
-//                    if (disponibilidade.length() > 0)
-//                        disponibilidade.setLength(disponibilidade.length() - 2);
-//
-//                    json.put("Disponibilidade", disponibilidade.toString());
-//
-//                    // Envia para backend
-//                    new ApiTask().execute(BASE_URL + "/api/Voluntario/cadastrar", json.toString());
-//
-//                } catch (Exception e) {
-//                    Toast.makeText(this, "Erro ao montar JSON", Toast.LENGTH_LONG).show();
-//                }
-//            }
-//        });
-
         btnEnviar.setOnClickListener(v -> {
             if (validarCampos()) {
                 try {
@@ -242,14 +191,13 @@ public class FormularioActivity extends AppCompatActivity {
         }
 
         String email = edtEmail.getText().toString().trim();
+        String regex = "^(?!.*[._-]{2})[A-Za-z0-9][A-Za-z0-9._-]{0,62}[A-Za-z0-9]@[A-Za-z0-9][A-Za-z0-9.-]{0,253}[A-Za-z0-9]\\.[A-Za-z]{2,}$";
+//        boolean valido = true;
         if (email.isEmpty()) {
             edtEmail.setError("Campo obrigatório");
             valido = false;
-        } else if (!email.equals(email.toLowerCase())) {
-            edtEmail.setError("O e-mail não pode conter letras maiúsculas");
-            valido = false;
-        } else if (!Patterns.EMAIL_ADDRESS.matcher(email).matches()) {
-            edtEmail.setError("Email inválido");
+        } else if (!email.matches(regex)) {
+            edtEmail.setError("E-mail inválido. Use apenas letras, números, ponto, -, _ e respeite a estrutura correta.");
             valido = false;
         } else {
             edtEmail.setError(null);
@@ -405,13 +353,5 @@ public class FormularioActivity extends AppCompatActivity {
             this.body = body;
         }
     }
-//    private static class ApiResponse {
-//        int statusCode;
-//        String body;
-//
-//        ApiResponse(int statusCode, String body) {
-//            this.statusCode = statusCode;
-//            this.body = body;
-//        }
-//    }
+
 }

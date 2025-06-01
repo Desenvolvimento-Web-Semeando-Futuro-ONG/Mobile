@@ -5,11 +5,8 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
-import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-import android.util.Patterns;
-import android.widget.Toast;
 import androidx.core.content.ContextCompat;
 import androidx.appcompat.app.AppCompatActivity;
 import android.view.inputmethod.InputMethodManager;
@@ -19,7 +16,7 @@ import java.text.NumberFormat;
 import java.util.Locale;
 
 public class DoacaoActivity extends AppCompatActivity {
-    private EditText inputNome, inputCpfCnpj, inputTelefone, inputEmail, inputValor;
+    private EditText inputNome, inputCpf, inputTelefone, inputEmail, inputValor;
     private Button btnEscolherValor, btnEscolherMaterial, btnPix;
 
     @Override
@@ -28,7 +25,7 @@ public class DoacaoActivity extends AppCompatActivity {
         setContentView(R.layout.doacao_page);
 
         inputNome = findViewById(R.id.input_nome);
-        inputCpfCnpj = findViewById(R.id.input_cpf);
+        inputCpf = findViewById(R.id.input_cpf);
         inputTelefone = findViewById(R.id.input_telefone);
         inputEmail = findViewById(R.id.input_email);
         inputValor = findViewById(R.id.input_valor);
@@ -41,7 +38,7 @@ public class DoacaoActivity extends AppCompatActivity {
         Intent intent = getIntent();
         if (intent != null) {
             if (intent.hasExtra("nome"))       inputNome.setText(intent.getStringExtra("nome"));
-            if (intent.hasExtra("cpfCnpj"))    inputCpfCnpj.setText(intent.getStringExtra("cpfCnpj"));
+            if (intent.hasExtra("cpfCnpj"))    inputCpf.setText(intent.getStringExtra("cpfCnpj"));
             if (intent.hasExtra("telefone"))   inputTelefone.setText(intent.getStringExtra("telefone"));
             if (intent.hasExtra("email"))      inputEmail.setText(intent.getStringExtra("email"));
             if (intent.hasExtra("valor"))      inputValor.setText(intent.getStringExtra("valor"));
@@ -68,7 +65,8 @@ public class DoacaoActivity extends AppCompatActivity {
             if (!hasFocus) validarNome();
         });
 
-        inputCpfCnpj.addTextChangedListener(new TextWatcher() {
+        // Máscara CPF (somente números, com formatação)
+        inputCpf.addTextChangedListener(new TextWatcher() {
             private boolean isUpdating;
 
             @Override
@@ -81,16 +79,12 @@ public class DoacaoActivity extends AppCompatActivity {
                     return;
                 }
                 String clean = s.toString().replaceAll("[^\\d]", "");
-                String formatted;
-                if (clean.length() <= 11) {
-                    formatted = formatCpf(clean);
-                } else {
-                    clean = clean.substring(0, Math.min(14, clean.length()));
-                    formatted = formatCnpj(clean);
-                }
+                if (clean.length() > 11)
+                    clean = clean.substring(0, 11);
+                String formatted = formatCpf(clean);
                 isUpdating = true;
-                inputCpfCnpj.setText(formatted);
-                inputCpfCnpj.setSelection(formatted.length());
+                inputCpf.setText(formatted);
+                inputCpf.setSelection(formatted.length());
             }
 
             @Override
@@ -99,7 +93,6 @@ public class DoacaoActivity extends AppCompatActivity {
 
         inputTelefone.addTextChangedListener(new TextWatcher() {
             boolean isUpdating;
-            String oldText = "";
 
             @Override
             public void beforeTextChanged(CharSequence s, int start, int count, int after) { }
@@ -108,7 +101,6 @@ public class DoacaoActivity extends AppCompatActivity {
             public void onTextChanged(CharSequence s, int start, int before, int count) {
                 String str = s.toString().replaceAll("\\D", "");
                 if (isUpdating) {
-                    oldText = str;
                     isUpdating = false;
                     return;
                 }
@@ -187,8 +179,8 @@ public class DoacaoActivity extends AppCompatActivity {
             inputNome.requestFocus();
             return;
         }
-        if (!validarCpfCnpj()) {
-            inputCpfCnpj.requestFocus();
+        if (!validarCpf()) {
+            inputCpf.requestFocus();
             return;
         }
         if (!validarTelefone()) {
@@ -207,7 +199,7 @@ public class DoacaoActivity extends AppCompatActivity {
         // Redireciona para a página do QR Code
         Intent intent = new Intent(this, QrcodeActivity.class);
         intent.putExtra("nome", inputNome.getText().toString().trim());
-        intent.putExtra("cpfCnpj", inputCpfCnpj.getText().toString().trim());
+        intent.putExtra("cpfCnpj", inputCpf.getText().toString().trim());
         intent.putExtra("telefone", inputTelefone.getText().toString().trim());
         intent.putExtra("email", inputEmail.getText().toString().trim());
         intent.putExtra("valor", getValorParaBackend()); // Envia o valor formatado para o backend
@@ -246,13 +238,13 @@ public class DoacaoActivity extends AppCompatActivity {
         return true;
     }
 
-    private boolean validarCpfCnpj() {
-        String texto = inputCpfCnpj.getText().toString().replaceAll("[^\\d]", "");
-        if (texto.length() == 11 || texto.length() == 14) {
+    private boolean validarCpf() {
+        String texto = inputCpf.getText().toString().replaceAll("[^\\d]", "");
+        if (texto.length() == 11 ) {
             return true;
         } else {
-            inputCpfCnpj.setError("Digite um CPF ou CNPJ válido");
-            inputCpfCnpj.requestFocus();
+            inputCpf.setError("Digite um CPF válido");
+            inputCpf.requestFocus();
             return false;
         }
     }
@@ -277,12 +269,9 @@ public class DoacaoActivity extends AppCompatActivity {
             inputEmail.setError("Campo obrigatório");
             return false;
         }
-        if (!email.equals(email.toLowerCase())) {
-            inputEmail.setError("O e-mail não pode conter letras maiúsculas");
-            return false;
-        }
-        if (!Patterns.EMAIL_ADDRESS.matcher(email).matches()) {
-            inputEmail.setError("Email inválido");
+        String regex = "^(?!.*[._-]{2})[A-Za-z0-9][A-Za-z0-9._-]{0,62}[A-Za-z0-9]@[A-Za-z0-9][A-Za-z0-9.-]{0,253}[A-Za-z0-9]\\.[A-Za-z]{2,}$";
+        if (!email.matches(regex)) {
+            inputEmail.setError("E-mail inválido. Use apenas letras, números, ponto, -, _ e respeite a estrutura correta.");
             return false;
         }
         inputEmail.setError(null);
@@ -295,7 +284,6 @@ public class DoacaoActivity extends AppCompatActivity {
             inputValor.setError("Campo obrigatório");
             return false;
         }
-
         String valorLimpo = valorFormatado.replaceAll("[^\\d,]", "").replace(",", ".");
         try {
             double valor = Double.parseDouble(valorLimpo);
@@ -315,19 +303,12 @@ public class DoacaoActivity extends AppCompatActivity {
         return true;
     }
 
+    // Máscara de CPF
     private String formatCpf(String cpf) {
         if (cpf.length() <= 3) return cpf;
         else if (cpf.length() <= 6) return cpf.substring(0, 3) + "." + cpf.substring(3);
         else if (cpf.length() <= 9) return cpf.substring(0, 3) + "." + cpf.substring(3, 6) + "." + cpf.substring(6);
         else return cpf.substring(0, 3) + "." + cpf.substring(3, 6) + "." + cpf.substring(6, 9) + "-" + cpf.substring(9);
-    }
-
-    private String formatCnpj(String cnpj) {
-        if (cnpj.length() <= 2) return cnpj;
-        else if (cnpj.length() <= 5) return cnpj.substring(0, 2) + "." + cnpj.substring(2);
-        else if (cnpj.length() <= 8) return cnpj.substring(0, 2) + "." + cnpj.substring(2, 5) + "." + cnpj.substring(5);
-        else if (cnpj.length() <= 12) return cnpj.substring(0, 2) + "." + cnpj.substring(2, 5) + "." + cnpj.substring(5, 8) + "/" + cnpj.substring(8);
-        else return cnpj.substring(0, 2) + "." + cnpj.substring(2, 5) + "." + cnpj.substring(5, 8) + "/" + cnpj.substring(8, 12) + "-" + cnpj.substring(12);
     }
 
     private void abrirWhatsAppComMensagem() {

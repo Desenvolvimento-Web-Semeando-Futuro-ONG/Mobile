@@ -16,11 +16,9 @@ import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 import com.google.zxing.BarcodeFormat;
 import com.journeyapps.barcodescanner.BarcodeEncoder;
-
 import org.json.JSONException;
 import org.json.JSONObject;
 import java.io.BufferedReader;
-import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.OutputStream;
 import java.net.HttpURLConnection;
@@ -30,8 +28,9 @@ import java.nio.charset.StandardCharsets;
 public class QrcodeActivity extends AppCompatActivity {
 
     private static final String TAG = "QrcodeActivity";
-    private static final String BASE_URL = "http://10.0.2.2:5189"; // Emulador Android Studio
+    private static final String BASE_URL = "https://back-end-n1cl.onrender.com";
 
+//    http://10.0.2.2:5189
     private TextView tvNome, tvCpfCnpj, tvTelefone, tvEmail, tvValor;
     private ImageView ivQrCode;
     private Button btnVoltar, btnFinalizar;

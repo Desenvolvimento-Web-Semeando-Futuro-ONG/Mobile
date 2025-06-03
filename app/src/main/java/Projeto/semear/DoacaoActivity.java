@@ -312,7 +312,7 @@ public class DoacaoActivity extends AppCompatActivity {
     }
 
     private void abrirWhatsAppComMensagem() {
-        String numero = "5581996675144";
+        String numero = "5581986541494";
         String mensagem = "Olá, gostaria de doar materiais para um dos projetos de vocês!";
         String url = "https://wa.me/" + numero + "?text=" + Uri.encode(mensagem);
         Intent intent = new Intent(Intent.ACTION_VIEW);

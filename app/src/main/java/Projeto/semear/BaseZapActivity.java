@@ -22,8 +22,8 @@ public abstract class BaseZapActivity extends AppCompatActivity {
     }
 
     private void abrirWhatsApp() {
-        String numero = "5581996675144"; // DDI + DDD + número
-        String mensagem = "Olá, gostaria de entrar em contato para saber uma informação!";
+        String numero = "5581986541484"; // DDI + DDD + número
+        String mensagem = "Olá! Gostaria de saber mais sobre a ONG Semeando o Futuro.";
         String url = "https://wa.me/" + numero + "?text=" + Uri.encode(mensagem);
 
         Intent intent = new Intent(Intent.ACTION_VIEW);

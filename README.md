@@ -29,6 +29,9 @@ da sua máquina e da velocidade de sua internet.
 5º) quando tudo estiver carregado, basta clicar num botão "play", na parte superior do andoid studio, que o emulador irá abrir rodando a aplicativo.
 ![image](https://github.com/user-attachments/assets/5b84ba28-c765-4987-8045-bdcde5ac8a0e)
 
+![image](https://github.com/user-attachments/assets/8d81ed57-7ab1-4911-bca3-7d3c80146272)
+
+
 Essa é a forma mais simples, mas há outras formas de se carregar o projeto, como por exemplo, copiando o link do repositório e colando direto no Android Studio, ao fazer isso, 
 ele vai pedir que voce escolha um lugar para salvar e vai carregar.
 

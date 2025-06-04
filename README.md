@@ -9,6 +9,7 @@ As outras integrantes da equipe, no caso, Ana Beatriz Silva e Bruna Carvalho, fi
 suporte necessários para nós que estávamos à frente no desenvolvimento da aplicação.
 
 Passo a passo para experimentar a solução
+
 A versão armazenada aqui no github é a última, então, partiremos agora para um passo a passo de como baixar e testar a aplicação mobile do projeto Semear.
 
 Requisitos: Android Studio instalado

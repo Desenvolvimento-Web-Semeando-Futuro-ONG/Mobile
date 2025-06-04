@@ -12,8 +12,8 @@ Passo a passo para experimentar a solução
 
 A versão armazenada aqui no github é a última, então, partiremos agora para um passo a passo de como baixar e testar a aplicação mobile do projeto Semear.
 
-Requisitos: Android Studio instalado e
-            Github Desktop instalado
+Requisitos: Android Studio e
+            Github Desktop instalados
 
 1º) Acesse o repositório do projeto na versão mobile: https://github.com/Desenvolvimento-Web-Semeando-Futuro-ONG/Mobile
 

@@ -23,9 +23,9 @@ Requisitos: Android Studio e
 ![image](https://github.com/user-attachments/assets/468e293e-bbaf-4606-a4a9-80e9779996e1)
 
 4º) Ao abrir com Android Studio, será carregado todas as dependências necessárias para o projeto. aguarde, isso pode demorar alguns minutos, vai depender do processamento
-da sua máquina e da velocidade de sua internet.
+de seu computador e da velocidade de sua internet.
 
-5º) quando tudo estiver carregado, basta clicar num botão "play", na parte superior do andoid studio, que o emulador irá abrir rodando a aplicativo.
+5º) quando tudo estiver carregado, basta clicar num botão "play", na parte superior do andoid studio, que o emulador irá abrir rodando o aplicativo Semear.
 ![image](https://github.com/user-attachments/assets/5b84ba28-c765-4987-8045-bdcde5ac8a0e)
 
 ![image](https://github.com/user-attachments/assets/8d81ed57-7ab1-4911-bca3-7d3c80146272)

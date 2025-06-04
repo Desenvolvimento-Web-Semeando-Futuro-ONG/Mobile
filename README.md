@@ -17,15 +17,16 @@ Requisitos: Android Studio instalado
 1º) Acesse o repositório do projeto na versão mobile: https://github.com/Desenvolvimento-Web-Semeando-Futuro-ONG/Mobile
 
 2º) Clicando com o botão direito do mouse, no botão verde "código", haverá a opção "abrir com o Github Desktop"
-![image](https://github.com/user-attachments/assets/019087ef-099e-4a81-8b72-fae0819dbda8)
+![image](https://github.com/user-attachments/assets/bf6276e7-9755-4e34-b566-a55eade7f43e)
 
 3º) Abrindo com Github desktop, vai ter a opção de Abrir com Android Studio. clique nela.
+![image](https://github.com/user-attachments/assets/468e293e-bbaf-4606-a4a9-80e9779996e1)
 
 4º) Ao abrir com Android Studio, será carregado todas as dependências necessárias para o projeto. aguarde, isso pode demorar alguns minutos, vai depender do processamento
 da sua máquina e da velocidade de sua internet.
 
 5º) quando tudo estiver carregado, basta clicar num botão "play", na parte superior do andoid studio, que o emulador irá abrir rodando a aplicativo.
-![image](https://github.com/user-attachments/assets/fd8e1818-e39b-4412-b4a5-a7181b2e4475)
+![image](https://github.com/user-attachments/assets/5b84ba28-c765-4987-8045-bdcde5ac8a0e)
 
 Essa é a forma mais simples, mas há outras formas de se carregar o projeto, como por exemplo, copiando o link do repositório e colando direto no Android Studio, ao fazer isso, 
 ele vai pedir que voce escolha um lugar para salvar e vai carregar.

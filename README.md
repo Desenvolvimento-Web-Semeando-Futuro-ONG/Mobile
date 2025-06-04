@@ -2,7 +2,7 @@ Introdução
 
 Olá, sou o Rogério, integrante do grupo 2 da turma 2023/1 (aluno do 5º e ultimo período de ADS na Universidade Tiradentes (Unit-Recife/PE)), e responsável pela versão mobile do projeto Semear.
 O projeto Semear é a criação de um portal online para uma ONG, a ONG Semeando o Futuro, localizada no bairro da Imbiribeira, Recife.
-O principal objetivo do site, é trazer mais visibilidade para a ONG, fazendo com que haja mais possibilidades de arrecadação de doações, voluntários e parceiros, além também de divulgar seus projetos.
+O principal objetivo do site, é trazer mais visibilidade para a ONG, fazendo com que haja mais possibilidades de arrecadação de doações, atrair mais voluntários e parceiros, além também de divulgar seus eventos e projetos.
 O Projeto é composto por 3 pilares: a versão web, a versão mobile e o backend/banco de dados. Como citado, fiquei responsável em desenvolver a versão mobile, enquanto minhas colegas Rayane e Ana Beatriz Rodrigues, 
 ficaram resposáveis pela versão Web e pelo Backend, respectivamente.
 As outras integrantes da equipe, no caso, Ana Beatriz Silva e Bruna Carvalho, ficaram responsáveis pela organização das documentações e organização do backlog no Jira, além de prestarem todo apoio e 
